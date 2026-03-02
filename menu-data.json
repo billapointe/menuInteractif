@@ -1,0 +1,184 @@
+{
+  "menu": [
+    {
+      "id": "cafe-1",
+      "nom": "Espresso",
+      "categorie": "cafe",
+      "prix": 2.75,
+      "description": "Shot simple d'espresso intense, torréfaction moyenne.",
+      "image": "images/espresso.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": true,
+        "sans_gluten": true,
+        "allergenes": []
+      }
+    },
+    {
+      "id": "cafe-2",
+      "nom": "Chocolat Chaud",
+      "categorie": "cafe",
+      "prix": 4.50,
+      "description": "Lait chaud, cacao et sucre.",
+      "image": "images/chocolat-chaud.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": true,
+        "allergenes": ["lait"]
+      }
+    },
+    {
+      "id": "cafe-3",
+      "nom": "Latte",
+      "categorie": "cafe",
+      "prix": 5.25,
+      "description": "Espresso doux avec lait vapeur crémeux.",
+      "image": "images/latte.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": true,
+        "allergenes": ["lait"]
+      }
+    },
+    {
+      "id": "cafe-4",
+      "nom": "Cold Brew",
+      "categorie": "cafe",
+      "prix": 5.00,
+      "description": "Café infusé à froid 18 h, servi glacé.",
+      "image": "images/cold-brew.png",
+      "disponible": true,
+      "populaire": false,
+      "tags": {
+        "vegan": true,
+        "sans_gluten": true,
+        "allergenes": []
+      }
+    },
+    {
+      "id": "the-1",
+      "nom": "Matcha Latte",
+      "categorie": "the",
+      "prix": 6.25,
+      "description": "Matcha japonais, lait vapeur et touche de vanille.",
+      "image": "images/matcha-latte.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": true,
+        "allergenes": ["lait"]
+      }
+    },
+    {
+      "id": "the-2",
+      "nom": "Chai Latte",
+      "categorie": "the",
+      "prix": 5.75,
+      "description": "Thé noir épicé, lait et épices (cardamome, gingembre, cannelle).",
+      "image": "images/chai-latte.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": true,
+        "allergenes": ["lait"]
+      }
+    },
+    {
+      "id": "the-3",
+      "nom": "Thé au choix",
+      "categorie": "the",
+      "prix": 3.50,
+      "description": "Thé vert, noir ou thé aux choix.",
+      "image": "images/the.png",
+      "disponible": true,
+      "populaire": false,
+      "tags": {
+        "vegan": true,
+        "sans_gluten": true,
+        "allergenes": []
+      }
+    },
+    {
+      "id": "the-4",
+      "nom": "Thé Glacé",
+      "categorie": "the",
+      "prix": 4.00,
+      "description": "Thé au choix, sur glace.",
+      "image": "images/the-glace.png",
+      "disponible": true,
+      "populaire": false,
+      "tags": {
+        "vegan": true,
+        "sans_gluten": true,
+        "allergenes": ["lait"]
+      }
+    },
+    {
+      "id": "patisserie-1",
+      "nom": "Croissant",
+      "categorie": "patisserie",
+      "prix": 3.75,
+      "description": "Croissant au beurre, croustillant et feuilleté.",
+      "image": "images/croissant.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": false,
+        "allergenes": ["blé", "lait", "œufs"]
+      }
+    },
+    {
+      "id": "patisserie-2",
+      "nom": "Muffin aux bleuets",
+      "categorie": "patisserie",
+      "prix": 4.25,
+      "description": "Muffin aux bleuets, version sans gluten.",
+      "image": "images/muffin.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": true,
+        "allergenes": ["œufs", "lait"]
+      }
+    },
+    {
+      "id": "patisserie-3",
+      "nom": "Tarte au citron",
+      "categorie": "patisserie",
+      "prix": 5.50,
+      "description": "Tarte citron meringuée, pâte sablée sans gluten.",
+      "image": "images/tarte-citron.png",
+      "disponible": true,
+      "populaire": false,
+      "tags": {
+        "vegan": false,
+        "sans_gluten": true,
+        "allergenes": ["œufs", "lait"]
+      }
+    },
+    {
+      "id": "patisserie-4",
+      "nom": "Brownie",
+      "categorie": "patisserie",
+      "prix": 4.50,
+      "description": "Brownie chocolat noir, version végane.",
+      "image": "images/brownie.png",
+      "disponible": true,
+      "populaire": true,
+      "tags": {
+        "vegan": true,
+        "sans_gluten": false,
+        "allergenes": ["blé", "soja"]
+      }
+    }
+  ]
+}

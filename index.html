@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu — The Roost Coffee</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,600;0,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="menu-header">
+    <a href="#" class="menu-header-logo" aria-label="The Roost — Accueil">
+      <img src="images/logo.png" alt="The Roost" class="menu-header-logo-img menu-header-logo-img--dark" width="140" height="auto">
+      <img src="images/logo-green.png" alt="The Roost" class="menu-header-logo-img menu-header-logo-img--light" width="140" height="auto">
+    </a>
+
+    <div class="menu-header-title" aria-hidden="true">
+      MENU
+    </div>
+
+    <button type="button" class="menu-header-theme-toggle js-theme-toggle" aria-label="Basculer mode clair / sombre">
+      <span class="menu-header-theme-toggle-icon" aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <main class="menu-main">
+    <section class="menu-toolbar">
+      <div class="menu-search-wrap">
+        <label for="menu-search" class="visually-hidden">Rechercher dans le menu</label>
+        <input
+          type="search"
+          id="menu-search"
+          class="menu-search-input js-search"
+          placeholder="Rechercher un produit…"
+          autocomplete="off"
+        >
+        <button
+          type="button"
+          class="menu-filter-toggle js-filter-toggle"
+          aria-label="Ouvrir les filtres de catégories et régimes"
+          aria-expanded="false"
+          aria-controls="diet-filter-panel"
+        >
+          Filtres
+        </button>
+      </div>
+      <div
+        id="diet-filter-panel"
+        class="menu-filter-panel"
+        hidden
+      >
+        <div class="menu-filter-panel-section">
+          <p class="menu-filter-panel-title">Catégories</p>
+          <div class="menu-filters menu-filters--categories">
+            <button
+              type="button"
+              class="menu-filter-btn js-filter is-active"
+              data-category="all"
+            >
+              Tous
+            </button>
+            <button
+              type="button"
+              class="menu-filter-btn js-filter"
+              data-category="cafe"
+            >
+              Café
+            </button>
+            <button
+              type="button"
+              class="menu-filter-btn js-filter"
+              data-category="the"
+            >
+              Thé
+            </button>
+            <button
+              type="button"
+              class="menu-filter-btn js-filter"
+              data-category="patisserie"
+            >
+              Pâtisserie
+            </button>
+          </div>
+        </div>
+        <div class="menu-filter-panel-section">
+          <p class="menu-filter-panel-title">Régimes</p>
+          <div
+            class="menu-diet-filters"
+            role="group"
+            aria-label="Filtrer par préférences alimentaires (mobile)"
+          >
+            <button
+              type="button"
+              class="menu-filter-btn menu-filter-btn--diet js-diet-filter is-active"
+              data-diet="all"
+            >
+              Tous les régimes
+            </button>
+            <button
+              type="button"
+              class="menu-filter-btn menu-filter-btn--diet js-diet-filter"
+              data-diet="vegan"
+            >
+              Végane
+            </button>
+            <button
+              type="button"
+              class="menu-filter-btn menu-filter-btn--diet js-diet-filter"
+              data-diet="sans_gluten"
+            >
+              Sans gluten
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="menu-layout">
+      <aside class="menu-categories" aria-label="Catégories et régimes du menu">
+        <h2 class="menu-categories-title">Catégories</h2>
+        <div class="menu-filters menu-filters--categories">
+          <button
+            type="button"
+            class="menu-filter-btn js-filter is-active"
+            data-category="all"
+          >
+            Tous
+          </button>
+          <button
+            type="button"
+            class="menu-filter-btn js-filter"
+            data-category="cafe"
+          >
+            Café
+          </button>
+          <button
+            type="button"
+            class="menu-filter-btn js-filter"
+            data-category="the"
+          >
+            Thé
+          </button>
+          <button
+            type="button"
+            class="menu-filter-btn js-filter"
+            data-category="patisserie"
+          >
+            Pâtisserie
+          </button>
+        </div>
+
+        <h2 class="menu-categories-title menu-categories-title--diet">Régimes</h2>
+        <div class="menu-diet-filters menu-diet-filters--stacked" role="group" aria-label="Filtrer par préférences alimentaires">
+          <button
+            type="button"
+            class="menu-filter-btn menu-filter-btn--diet js-diet-filter is-active"
+            data-diet="all"
+          >
+            Tous les régimes
+          </button>
+          <button
+            type="button"
+            class="menu-filter-btn menu-filter-btn--diet js-diet-filter"
+            data-diet="vegan"
+          >
+            Végane
+          </button>
+          <button
+            type="button"
+            class="menu-filter-btn menu-filter-btn--diet js-diet-filter"
+            data-diet="sans_gluten"
+          >
+            Sans gluten
+          </button>
+        </div>
+      </aside>
+
+      <div class="menu-grid js-menu-grid">
+        <article class="menu-card js-menu-card" data-category="cafe" data-id="cafe-1">
+          <div class="menu-card-image">
+            <img src="images/espresso.png" alt="" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <h3 class="menu-card-name">Espresso</h3>
+            <p class="menu-card-price">2,75&nbsp;$</p>
+            <p class="menu-card-description">Shot simple d'espresso intense, torréfaction moyenne.</p>
+            <ul class="menu-card-tags js-card-tags" aria-label="Allergènes et régimes">
+              <li class="menu-card-tag menu-card-tag--vegan">Végane</li>
+              <li class="menu-card-tag menu-card-tag--sans-gluten">Sans gluten</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="menu-card js-menu-card" data-category="cafe" data-id="cafe-2">
+          <div class="menu-card-image">
+            <img src="images/chocolat-chaud.png" alt="" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <h3 class="menu-card-name">Chocolat Chaud</h3>
+            <p class="menu-card-price">4,50&nbsp;$</p>
+            <p class="menu-card-description">Lait chaud, cacao et sucre.</p>
+            <ul class="menu-card-tags js-card-tags" aria-label="Allergènes et régimes">
+              <li class="menu-card-tag menu-card-tag--allergene">Lait</li>
+              <li class="menu-card-tag menu-card-tag--sans-gluten">Sans gluten</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="menu-card js-menu-card" data-category="the" data-id="the-1">
+          <div class="menu-card-image">
+            <img src="images/matcha-latte.png" alt="" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <h3 class="menu-card-name">Matcha Latte</h3>
+            <p class="menu-card-price">6,25&nbsp;$</p>
+            <p class="menu-card-description">Matcha japonais, lait vapeur et touche de vanille.</p>
+            <ul class="menu-card-tags js-card-tags" aria-label="Allergènes et régimes">
+              <li class="menu-card-tag menu-card-tag--allergene">Lait</li>
+              <li class="menu-card-tag menu-card-tag--sans-gluten">Sans gluten</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="menu-card js-menu-card" data-category="patisserie" data-id="patisserie-1">
+          <div class="menu-card-image">
+            <img src="images/croissant.png" alt="" loading="lazy">
+          </div>
+          <div class="menu-card-body">
+            <h3 class="menu-card-name">Croissant</h3>
+            <p class="menu-card-price">3,75&nbsp;$</p>
+            <p class="menu-card-description">Croissant au beurre, croustillant et feuilleté.</p>
+            <ul class="menu-card-tags js-card-tags" aria-label="Allergènes et régimes">
+              <li class="menu-card-tag menu-card-tag--allergene">Blé</li>
+              <li class="menu-card-tag menu-card-tag--allergene">Lait</li>
+              <li class="menu-card-tag menu-card-tag--allergene">Œufs</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

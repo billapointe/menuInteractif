@@ -1,0 +1,790 @@
+/* ============================================================
+   MENU DIGITAL — The Roost Coffee
+   HTML/CSS vanilla, mobile-first
+   ============================================================ */
+
+/* ---------- Variables (branding theRoostCoffee) ---------- */
+:root {
+  --cream: #f5f0e8;
+  --espresso: #2c1810;
+  --caramel: #8b6914;
+  --milk: #e8e0d4;
+  --menu-green: #3d4239;
+  --shadow: rgba(44, 24, 16, 0.12);
+  --surface-elevated: #4a3728;
+
+  /* Thème sombre (défaut) */
+  --bg: var(--menu-green);
+  --bg-surface: #3d2e26;
+  --text: var(--cream);
+  --text-muted: var(--milk);
+  --accent: var(--caramel);
+  --border: rgba(245, 240, 232, 0.15);
+  --input-bg: rgba(245, 240, 232, 0.08);
+  --input-border: rgba(245, 240, 232, 0.2);
+  --card-bg: linear-gradient(165deg, #4a3728 0%, var(--espresso) 100%);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --search-cancel-color: var(--milk);
+}
+
+[data-theme="light"] {
+  --bg: var(--cream);
+  --text: var(--espresso);
+  --text-muted: var(--espresso);
+  --accent: var(--caramel);
+  --border: rgba(44, 24, 16, 0.12);
+  --input-border: rgba(44, 24, 16, 0.2);
+  --card-bg: var(--milk);
+  --card-border: rgba(44, 24, 16, 0.1);
+  --shadow-card: 0 4px 20px var(--shadow);
+  --search-cancel-color: var(--espresso);
+}
+
+/* ---------- Base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .accent {
+  font-family: 'Libre Baskerville', serif;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Header ---------- */
+.menu-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+}
+
+.menu-header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-header-logo-img {
+  display: block;
+  height: 5rem;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+/* Titre centré dans la navbar */
+.menu-header-title {
+  flex: 1;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+[data-theme="light"] .menu-header-title {
+  color: var(--menu-green);
+}
+
+/* Évite que le logo pousse le titre hors centre visuel */
+.menu-header-logo {
+  flex-shrink: 0;
+}
+
+.menu-header-logo-img--light {
+  display: none;
+}
+
+.menu-header-logo-img--dark {
+  display: block;
+}
+
+[data-theme="light"] .menu-header-logo-img--light {
+  display: block;
+}
+
+[data-theme="light"] .menu-header-logo-img--dark {
+  display: none;
+}
+
+.menu-header-theme-toggle {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--input-bg);
+  color: var(--accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-header-theme-toggle:hover {
+  background: var(--bg-surface);
+  transform: scale(1.05);
+}
+
+.menu-header-theme-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.menu-header-theme-toggle-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--accent);
+  background: none;
+  border-radius: 999px;
+}
+
+[data-theme="dark"] .menu-header-theme-toggle-icon::before {
+  content: "🌙";
+  font-size: 1.2rem;
+}
+
+[data-theme="light"] .menu-header-theme-toggle-icon::before {
+  content: "☀️";
+  font-size: 1.2rem;
+}
+
+/* ---------- Main & Toolbar ---------- */
+.menu-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Layout autour de la grille & des catégories ---------- */
+.menu-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.menu-categories {
+  display: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--surface-elevated);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.menu-categories-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.menu-filters--categories {
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.menu-categories .menu-filter-btn {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.menu-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.menu-toolbar-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+/* Search */
+.menu-search-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-search-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 2.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 2rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-search-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.8;
+}
+
+.menu-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(139, 105, 20, 0.2);
+}
+
+/* Bouton clear (x) de la recherche : milk en dark, espresso en light */
+.menu-search-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: var(--search-cancel-color);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  cursor: pointer;
+}
+
+/* Mobile filter toggle button (à côté de la recherche) */
+.menu-filter-toggle {
+  flex-shrink: 0;
+  padding: 0.6rem 0.9rem;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-filter-toggle::before {
+  content: "⧉";
+  font-size: 0.95rem;
+}
+
+.menu-filter-toggle:hover {
+  background: var(--bg-surface);
+  color: var(--text);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.menu-filter-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Panneau déroulant des filtres sur mobile */
+.menu-filter-panel {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.9rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.menu-filter-panel[hidden] {
+  display: none;
+}
+
+.menu-filter-panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.menu-filter-panel-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* Style "cases à cocher" pour les filtres dans le panneau mobile */
+.menu-filter-panel .menu-filter-btn {
+  position: relative;
+  padding-left: 2.1rem;
+}
+
+.menu-filter-panel .menu-filter-btn::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.menu-filter-panel .menu-filter-btn.is-active::before {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: none;
+}
+
+.menu-filter-panel .menu-filter-btn.is-active::after {
+  content: "✓";
+  position: absolute;
+  left: 1.02rem;
+  top: 50%;
+  transform: translateY(-52%);
+  font-size: 0.75rem;
+  color: var(--cream);
+}
+
+/* Filters */
+.menu-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.menu-diet-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.menu-diet-filters--stacked {
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+}
+
+.menu-diet-filters--stacked .menu-filter-btn {
+  width: 100%;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.menu-categories-title--diet {
+  margin-top: 1.25rem;
+}
+
+.menu-filter-btn {
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  /* Au repos, même couleur que le fond du menu de filtres */
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+[data-theme="light"] .menu-filter-btn {
+  background: var(--milk);
+}
+
+/* Variante visuelle légère pour les filtres de régime (vegan / sans gluten) */
+.menu-filter-btn--diet {
+  font-size: 0.8rem;
+  padding-inline: 0.75rem;
+  opacity: 0.9;
+}
+
+.menu-filter-btn:not(.is-active):hover {
+  color: var(--cream);
+  background: var(--caramel);
+  border-color: var(--caramel);
+}
+
+[data-theme="light"] .menu-filter-btn:not(.is-active):hover {
+  color: var(--cream);
+  background: var(--caramel);
+  border-color: var(--caramel);
+}
+
+.menu-filter-btn.is-active {
+  color: var(--espresso);
+  background: var(--milk);
+  border-color: var(--milk);
+}
+
+[data-theme="light"] .menu-filter-btn.is-active {
+  color: var(--cream);
+  background: var(--menu-green);
+  border-color: var(--menu-green);
+}
+
+.menu-filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---------- Grid ---------- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.menu-grid-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ---------- Card (effet 3D) ---------- */
+.menu-card {
+  background: linear-gradient(165deg, #4a3728 0%, var(--espresso) 100%);
+  border-radius: 12px;
+  border: 1px solid var(--card-border);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+}
+
+[data-theme="light"] .menu-card {
+  background: var(--card-bg);
+}
+
+.menu-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.45),
+    0 8px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] .menu-card:hover {
+  box-shadow:
+    0 12px 32px var(--shadow),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.menu-card-image {
+  aspect-ratio: 1;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  position: relative;
+}
+
+/* Légère ombre sous la zone image (produit sur la carte) */
+.menu-card-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 20%;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.menu-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+  /* Ombre légère sous le produit */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.menu-card-body {
+  padding: 1.25rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: transparent;
+}
+
+.menu-card-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.menu-card-price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0;
+}
+
+.menu-card-description {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.menu-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.menu-card-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.15);
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .menu-card-tag {
+  background: var(--milk);
+  color: var(--menu-green);
+}
+
+/* Thème clair : fond du menu de filtres en "milk" */
+[data-theme="light"] .menu-filter-panel,
+[data-theme="light"] .menu-categories {
+  background: var(--milk);
+}
+
+.menu-card-tag--allergene {
+  border: 1px solid var(--border);
+}
+
+.menu-card-tag--vegan,
+.menu-card-tag--sans-gluten {
+  opacity: 0.9;
+}
+
+/* Icône d'avertissement discrète pour les allergènes au survol */
+.menu-card-tag--allergene::before {
+  content: "⚠ ";
+}
+
+/* ---------- Responsive (tablette) ---------- */
+@media (min-width: 768px) {
+  /* Sur tablette+ on affiche l’aside et on masque le panneau mobile */
+  .menu-categories {
+    min-width: 200px;
+    max-width: 240px;
+    position: sticky;
+    top: 6.5rem;
+    display: block;
+  }
+
+  .menu-filter-toggle,
+  .menu-filter-panel {
+    display: none !important;
+  }
+
+  .menu-header {
+    padding: 1rem 2rem;
+  }
+
+  .menu-header-logo-img {
+    height: 5rem;
+  }
+
+  .menu-main {
+    padding: 2rem 2rem 3rem;
+  }
+
+  .menu-layout {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .menu-toolbar {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .menu-search-wrap {
+    max-width: 280px;
+    flex-shrink: 0;
+  }
+
+  .menu-filters {
+    flex-wrap: nowrap;
+  }
+
+  .menu-toolbar-filters {
+    align-items: flex-end;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+/* ---------- Responsive (desktop) ---------- */
+@media (min-width: 900px) {
+  .menu-main {
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .menu-toolbar {
+    margin-bottom: 3rem;
+  }
+
+  .menu-search-wrap {
+    max-width: 320px;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .menu-card-body {
+    padding: 1.75rem 2rem;
+  }
+
+  .menu-card-name {
+    font-size: 1.35rem;
+  }
+
+  .menu-card-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    url("images/beans.png"),
+    url("images/beans.png"),
+    url("images/beans.png"),
+    url("images/beans.png"),
+    url("images/beans.png"),
+    url("images/beans.png");
+  background-repeat: no-repeat;
+  background-size: 72px auto, 80px auto, 64px auto, 72px auto, 80px auto, 64px auto;
+  background-position:
+    12% 18%,
+    82% 10%,
+    8% 75%,
+    50% 90%,
+    92% 82%,
+    25% 92%;
+  opacity: 0.14;
+  animation: coffeeBeansDrift 38s ease-in-out infinite alternate;
+}
+
+[data-theme="light"] body::before {
+  background-image:
+    url("images/beans-dark.png"),
+    url("images/beans-dark.png"),
+    url("images/beans-dark.png"),
+    url("images/beans-dark.png"),
+    url("images/beans-dark.png"),
+    url("images/beans-dark.png");
+}
+
+@keyframes coffeeBeansDrift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(16px, 10px, 0);
+  }
+  100% {
+    transform: translate3d(32px, 18px, 0);
+  }
+}
