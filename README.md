@@ -1,41 +1,68 @@
-# Menu interactif — The Roost Coffee
+# The Roost Coffee Shop - Menu Interactif
 
-Menu digital avec recherche, filtres par catégorie (café, thé, pâtisserie) et par régime (végane, sans gluten), et bascule thème clair/sombre.
+🔗 Live Demo
+**[Voir le site en direct](#)**
 
-## Démarrage
+---
 
-Ouvrir `index.html` dans un navigateur (double-clic ou via un serveur local).
+## 📋 About
 
-Pour éviter les restrictions CORS sur le chargement de `menu-data.json`, lancer un serveur local :
+A fully interactive digital menu for a fictional coffee shop. Features real-time search, category and dietary filters, allergen tags, and a dark/light mode toggle. Built to showcase JavaScript skills and dynamic DOM manipulation without any frameworks.
 
-```bash
-# Python 3
-python3 -m http.server 8000
+---
 
-# ou avec npx (Node.js)
-npx serve .
-```
+## 🛠 Built With
 
-Puis aller sur `http://localhost:8000`.
+* HTML5
+* CSS3
+* JavaScript Vanilla
+* JSON
+* Responsive Design
+* GitHub Pages (deployment)
 
-## Structure du projet
+---
 
-```
-menuInteractif/
-├── index.html      # Page du menu
-├── styles.css      # Styles (thème clair/sombre, cartes, filtres)
-├── app.js          # Logique : chargement JSON, recherche, filtres, rendu
-├── menu-data.json  # Données du menu (items, prix, tags)
-├── images/         # Logos et illustrations des produits
-└── README.md
-```
+## ✨ Features
 
-## Technologies
+* 🔍 Real-time search bar
+* ☕ Category filters (Café, Thé, Pâtisserie)
+* 🌱 Dietary filters (Végane, Sans gluten)
+* ⚠️ Allergen tags 
+* 🌙 Dark / Light mode toggle
+* 📱 Fully responsive (mobile, tablet, desktop)
+* 🎨 Custom watercolor illustrations & cohesive branding
 
-- HTML, CSS, JavaScript vanilla
-- Données en JSON chargées via `fetch`
-- Polices : Libre Baskerville, DM Sans (Google Fonts)
+---
 
-## Licence
+## 📸 Screenshots
 
-Projet personnel / démo.
+1772480662507_image.png
+1772480678546_image.png
+1772480696122_image.png
+1772480710158_image.png
+
+---
+
+## 🎯 Purpose
+
+Created as part of my web development portfolio to demonstrate:
+
+* Dynamic DOM manipulation with Vanilla JavaScript
+* Asynchronous data loading with the Fetch API
+* Real-time filtering and search logic
+* CSS custom properties for theming (dark/light mode)
+* Mobile-first responsive design
+* Consistent branding across multiple projects
+
+---
+
+## 💼 Interested in a Website Like This?
+
+I build custom websites for small businesses and entrepreneurs.  
+Let's connect:
+
+* Email: **lapointebillie@gmail.com**
+
+---
+
+Built with ☕ and code by Billie Lapointe
