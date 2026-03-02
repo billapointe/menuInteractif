@@ -35,13 +35,12 @@ A fully interactive digital menu for a fictional coffee shop. Features real-time
 ---
 
 ## 📸 Screenshots
-
-<img width="1902" height="990" alt="image" src="https://github.com/user-attachments/assets/1bd5e93c-f08a-43e3-af7c-09dc08b0574c" />
+| | | | |
+|---|---|---|---|
+|<img width="1902" height="990" alt="image" src="https://github.com/user-attachments/assets/1bd5e93c-f08a-43e3-af7c-09dc08b0574c" />
 <img width="1919" height="989" alt="image" src="https://github.com/user-attachments/assets/13e404d4-f2b0-478e-b4c4-8332f7a19ad6" />
-
-*mobile view*
 <img width="417" height="902" alt="image" src="https://github.com/user-attachments/assets/fcea6dec-d75d-4b1c-95d1-b454a1bb1ebf" />
-<img width="418" height="905" alt="image" src="https://github.com/user-attachments/assets/a12132fc-ebb4-4a0c-a778-92eb2c790324" />
+<img width="418" height="905" alt="image" src="https://github.com/user-attachments/assets/a12132fc-ebb4-4a0c-a778-92eb2c790324" />|
 
 
 
